@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/js/controllers.js"></script>
+    <link rel="stylesheet" href="CSS.css">
+
+</head>
+<body ng-controller="TableEmployeesCtrl">
+<img src="images/ProIT.png" width="10%" height="10%">
+<div class="container">
+
+    <nav name="buttons">
+
+        <a href="#/employer?limit=20&offset=0">
+            <button class="buttons11" type="button"> список сотрудников </button>
+        </a>
+        <a href="#/organization?limit=20&offset=0">
+            <button class="buttons11" type="button"> список организаций </button>
+        </a>
+        <a href="#/serviceEmployer">
+            <button class="buttons11" type="button"> добавить/удалить/изменить сотрудника </button>
+        </a>
+        <a href="#/serviceOrganization">
+            <button class="buttons11" type="button"> добавить/удалить/изменить организацию </button>
+        </a>
+        <br>
+
+    </nav>
+
+    <ng-view></ng-view>
+
+</div>
+</body>
+</html>

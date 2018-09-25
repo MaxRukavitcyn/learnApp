@@ -1,0 +1,139 @@
+
+
+<!--==============================================SEARCH FORM=========================================================-->
+<form name="search" ng-submit="searchEmployer()">
+    <h1>Поиск сорудников</h1>
+
+    <table>
+        <tr>
+            <td>
+                <label>name:</label>
+            </td>
+            <td>
+                <input type="text" ng-model="employer.name"/>
+            </td>
+            <td>
+                <lable>фамилия:</lable>
+            </td>
+            <td>
+                <input type="text" ng-model="employer.lastName"/>
+            </td>
+            <td>
+                <label>возраст:</label>
+            </td>
+            <td>
+                <input type="number" ng-model="employer.age"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>должность:</label>
+            </td>
+            <td>
+                <input type="text" ng-model="employer.position"/>
+            </td>
+            <td>
+                <label>ID организации</label>
+            </td>
+            <td>
+                <input type="number" ng-model="employer.idOrganization"/>
+            </td>
+            <td>
+                <label>отдел:</label>
+            </td>
+            <td>
+                <input type="text" ng-model="employer.department"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>зароботная плата:</label>
+            </td>
+            <td>
+                <input type="number" ng-model="employer.salary"/>
+            </td>
+            <td>
+                <label>образование:</label>
+            </td>
+            <td>
+                <input type="text" ng-model="employer.education"/>
+            </td>
+            <td>
+                <label>статус:</label>
+            </td>
+            <td>
+                <span><input name="status" ng-model="employer.status" type="radio" value="true">работает</span>
+                <span><input name="status" ng-model="employer.status" type="radio" value="false">уволен</span>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="найти"/></td>
+        </tr>
+        </tr>
+    </table>
+</form>
+
+    <h1>Сотрудники</h1>
+<table border="2" width="100%">
+    <th ng-click="sort('empId')">ID
+    </td>
+    <th ng-click="sort('empName')">Имя
+    </td>
+    <th ng-click="sort('empLastName')">фамилия
+    </td>
+    <th ng-click="sort('empAge')">возраст
+    </td>
+    <th ng-click="sort('empPos')">должность
+    </td>
+    <th ng-click="sort('orgId')">ID организации
+    </td>
+    <th ng-click="sort('department')">отдел
+    </td>
+    <th ng-click="sort('education')">образование
+    </td>
+    <th ng-click="sort('salary')">зар.плата
+    </td>
+    <th ng-click="sort('status')">статус
+    </td>
+
+
+    <tr  ng-repeat="employer in filterFunc = ( employees | orderBy:sortNameField:reverse)">
+        <td>{{employer.empId}}</td>
+        <td>{{employer.empName}}</td>
+        <td>{{employer.empLastName}}</td>
+        <td>{{employer.empAge}}</td>
+        <td>{{employer.empPos}}</td>
+        <td>{{employer.orgId}}</td>
+        <td>{{employer.department}}</td>
+        <td>{{employer.education}}</td>
+        <td>{{employer.salary}}</td>
+        <td>{{employer.status}}</td>
+    </tr>
+</table>
+
+<nav class="number-buttons" >
+    <div>
+        <br>
+        <a href="#/employer/?limit=20&offset=0"> 1 </a>
+        <a href="#/employer/?limit=20&offset=20"> 2 </a>
+        <a href="#/employer/?limit=20&offset=40"> 3 </a>
+        <a href="#/employer/?limit=20&offset=60"> 4 </a>
+        <a href="#/employer/?limit=20&offset=80"> 5 </a>
+        <a href="#/employer/?limit=20&offset=100"> 6 </a>
+        <a href="#/employer/?limit=20&offset=120"> 7 </a>
+        <a href="#/employer/?limit=20&offset=140"> 8 </a>
+        <a href="#/employer/?limit=20&offset=160"> 9 </a>
+        <a href="#/employer/?limit=20&offset=180"> 10 </a>
+        <a href="#/employer/?limit=20&offset=200"> 11 </a>
+        <a href="#/employer/?limit=20&offset=220"> 12 </a>
+        <a href="#/employer/?limit=20&offset=240"> 13 </a>
+        <a href="#/employer/?limit=20&offset=260"> 14 </a>
+        <a href="#/employer/?limit=20&offset=280"> 15 </a>
+        <a href="#/employer/?limit=20&offset=300"> 16 </a>
+
+
+    </div>
+</nav>
+<button ng-click="showHello()">PUSH ME</button>
+<p>Общее колличество сотрудников: {{filterFunc.length}}</p>

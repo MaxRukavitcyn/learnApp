@@ -1,0 +1,139 @@
+<div ng-controller="TableOrganizationCtrl">
+    <h1>Поиск организаций</h1>
+    <form name="SearchOrganization" ng-submit="searchOrganization()">
+        <table>
+            <tr>
+                <td>
+                    <label>название:</label>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.name"/>
+                </td>
+                <td>
+                    <lable>адрес:</lable>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.addres"/>
+                </td>
+                <td>
+                    <label>тип:</label>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.type"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>деятельность:</label>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.activities"/>
+                </td>
+                <td>
+                    <label>директор:</label>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.director"/>
+                </td>
+                <td>
+                    <label>отделы:</label>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.departments"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>вредность:</label>
+                </td>
+                <td>
+                    <span><input name="status" ng-model="organization.insalubrity" type="radio"
+                                 value="true">есть</span>
+                    <span><input name="status" ng-model="organization.insalubrity" type="radio"
+                                 value="false">нет</span>
+                </td>
+                <td>
+                    <label>дата создания:</label>
+                </td>
+                <td>
+                    <input type="date" ng-model="organization.dateCreate"/>
+                </td>
+                <td>
+                    <label>статус:</label>
+                </td>
+                <td>
+                    <span><input name="status" ng-model="organization.status" type="radio"
+                                 value="true">действует</span>
+                    <span><input name="status" ng-model="organization.status" type="radio" value="false">закрыта</span>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="найти"></td>
+
+            </tr>
+
+        </table>
+
+    </form>
+
+
+    <h1>Организации</h1>
+
+    <table border="2" width="100%">
+        <th ng-click="sort('orgId')">ID
+        </td>
+        <th ng-click="sort('orgName')">название
+        </td>
+        <th ng-click="sort('orgAdress')">адрес
+        </td>
+        <th ng-click="sort('orgType')">тип
+        </td>
+        <th ng-click="sort('activities')">деятельность
+        </td>
+        <th ng-click="sort('director')">директор
+        </td>
+        <th ng-click="sort('departments')">отделы
+        </td>
+        <th ng-click="sort('insalubrity')">вредность
+        </td>
+        <th ng-click="sort('dateCreate')">дата создания
+        </td>
+        <th ng-click="sort('status')">статус
+        </td>
+
+
+        <tr ng-repeat="organization in filterFunc = ( organizations | orderBy:sortNameField:reverse)">
+            <td>{{organization.orgId}}</td>
+            <td>{{organization.orgName}}</td>
+            <td>{{organization.orgAdress}}</td>
+            <td>{{organization.orgType}}</td>
+            <td>{{organization.activities}}</td>
+            <td>{{organization.director}}</td>
+            <td>{{organization.departments}}</td>
+            <td>{{organization.insalubrity}}</td>
+            <td>{{organization.dateCreate}}</td>
+            <td>{{organization.status}}</td>
+        </tr>
+    </table>
+
+    <nav class="number-buttons">
+        <div>
+            <br>
+            <a href="#/organization/?limit=20&offset=0"> 1 </a>
+            <a href="#/organization/?limit=20&offset=20"> 2 </a>
+            <a href="#/organization/?limit=20&offset=40"> 3 </a>
+            <a href="#/organization/?limit=20&offset=60"> 4 </a>
+            <a href="#/organization/?limit=20&offset=80"> 5 </a>
+            <a href="#/organization/?limit=20&offset=100"> 6 </a>
+            <a href="#/organization/?limit=20&offset=120"> 7 </a>
+            <a href="#/organization/?limit=20&offset=140"> 8 </a>
+            <a href="#/organization/?limit=20&offset=160"> 9 </a>
+            <a href="#/organization/?limit=20&offset=180"> 10 </a>
+
+        </div>
+    </nav>
+
+
+    <p>Общее колличество сотрудников: {{filterFunc.length}}</p>
+</div>

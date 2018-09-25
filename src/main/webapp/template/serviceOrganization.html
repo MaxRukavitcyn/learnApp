@@ -1,0 +1,201 @@
+<h1>Добавить организацию</h1>
+
+
+<div ng-controller="OrganizationCtrl">
+    <form  name="AddOrganization" ng-submit="addOrganization()">
+        <table>
+            <tr>
+                <td>
+                    <span>название:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.orgName" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>адрес:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.orgAdress" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>тип:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.orgType" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>деятельность:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.activities" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>директор:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.director" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>отделы:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organization.departments" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>вредность:</label>
+                </td>
+                <td>
+                    <span><input name="status" ng-model="organization.insalubrity" type="radio" value="true" required>есть</span>
+                    <span><input name="status" ng-model="organization.insalubrity" type="radio" value="false" required>нет</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>дата создания:</span>
+                </td>
+                <td>
+                    <input type="date" ng-model="organization.dateCreate"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>статус:</span>
+                </td>
+                <td>
+                    <span><input name="status" ng-model="organization.status" type="radio" value="true" required>действует</span>
+                    <span><input name="status" ng-model="organization.status" type="radio" value="false" required>закрыта</span>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="добавить" ng-disabled="AddOrganization.$invalid"></td>
+
+            </tr>
+
+        </table>
+    </form>
+
+    <form name="DeleteOrganization" ng-submit="deleteOrganization()">
+        <h2>Удалить организацию</h2>
+        <table>
+            <tr>
+                <td>
+                    <span>Веедите ID организации</span>
+                </td>
+                <td>
+                    <input type="number" ng-model="id" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="удалить" ng-disabled="DeleteOrganization.$invalid"></td>
+            </tr>
+        </table>
+    </form>
+
+    <form name="PatchOrganization" ng-submit="patchOrganization()">
+        <h2>Изменить данные об организации</h2>
+        <table>
+            <tr>
+                <td>
+                    <span>ID:</span>
+                </td>
+                <td>
+                    <input type="number" ng-model="organizationPatch.orgId" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>название:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organizationPatch.orgName" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>адрес:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organizationPatch.orgAdress" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>тип:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organizationPatch.orgType" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>деятельность:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organizationPatch.activities" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>директор:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organizationPatch.director" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>отделы:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="organizationPatch.departments" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>вредность:</label>
+                </td>
+                <td>
+                    <span><input name="status" ng-model="organizationPatch.insalubrity" type="radio" value="true" required>есть</span>
+                    <span><input name="status" ng-model="organizationPatch.insalubrity" type="radio" value="false" required>нет</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>дата создания:</span>
+                </td>
+                <td>
+                    <input type="date" ng-model="organizationPatch.dateCreate"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>статус:</span>
+                </td>
+                <td>
+                    <span><input name="status" ng-model="organizationPatch.status" type="radio" value="true" required>действует</span>
+                    <span><input name="status" ng-model="organizationPatch.status" type="radio" value="false" required>закрыта</span>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="добавить" ng-disabled="PatchOrganization.$invalid"></td>
+
+            </tr>
+
+        </table>
+    </form>
+</div>
+

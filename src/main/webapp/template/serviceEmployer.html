@@ -1,0 +1,205 @@
+<h1>Добавить сотрудника</h1>
+
+
+<div ng-controller="EmployerCtrl">
+    <form name="AddEmployer" ng-submit="addEmployer()">
+        <table>
+            <tr>
+                <td>
+                    <span>имя:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="employer.empName" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>фамилия:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="employer.empLastName" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>возраст:</span>
+                </td>
+                <td>
+                    <input type="number" ng-model="employer.empAge" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>должность:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="employer.empPos" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>ID организации</span>
+                </td>
+                <td>
+                    <input type="number" ng-model="employer.orgId" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>отдел:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="employer.department" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>зароботная плата:</span>
+                </td>
+                <td>
+                    <input type="number" ng-model="employer.salary" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>образование:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="employer.education" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>статус:</span>
+                </td>
+                <td>
+                    <span><input name="status" ng-model="employer.status" type="radio" value="true"
+                                 required>работает</span>
+                    <span><input name="status" ng-model="employer.status" type="radio" value="false"
+                                 required>уволен</span>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="добавить" ng-disabled="AddEmployer.$invalid"/></td>
+            </tr>
+        </table>
+    </form>
+
+    </form>
+
+
+    <form name="DeleteEmployer" ng-submit="deleteEmployer()">
+        <h2>Удалить сотрудника</h2>
+        <table>
+            <tr>
+                <td>
+                    <span>Введите ID сотрудника</span>
+                </td>
+                <td>
+                    <input type="number" ng-model="id" required/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="удалить" ng-disabled="DeleteEmployer.$invalid"></td>
+            </tr>
+        </table>
+    </form>
+
+    <form name="PatchEmployer" ng-submit="patchEmployer()">
+        <h2>Изменить данные о сотруднике</h2>
+        <table>
+            <tr>
+                <td>
+                    <span>ID:</span>
+                </td>
+                <td>
+                    <input type="number" ng-model="employerPatch.empId" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>имя:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="employerPatch.empName" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>фамилия:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="employerPatch.empLastName" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>возраст:</span>
+                </td>
+                <td>
+                    <input type="number" ng-model="employerPatch.empAge" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>должность:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="employerPatch.empPos" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>ID организации</span>
+                </td>
+                <td>
+                    <input type="number" ng-model="employerPatch.orgId" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>отдел:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="employerPatch.department" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>зароботная плата:</span>
+                </td>
+                <td>
+                    <input type="number" ng-model="employerPatch.salary" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>образование:</span>
+                </td>
+                <td>
+                    <input type="text" ng-model="employerPatch.education" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>статус:</span>
+                </td>
+                <td>
+                    <span><input name="status" ng-model="employerPatch.status" type="radio" value="true"
+                                 required>работает</span>
+                    <span><input name="status" ng-model="employerPatch.status" type="radio" value="false"
+                                 required>уволен</span>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="изменить" ng-disabled="PatchEmployer.$invalid"/></td>
+            </tr>
+        </table>
+    </form>
+
+    </form>
+
+
+</div>
