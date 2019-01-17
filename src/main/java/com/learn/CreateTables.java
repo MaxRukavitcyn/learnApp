@@ -155,8 +155,7 @@ public class CreateTables {
     }
 
       public static void main(String []args) throws Exception{
-        System.out.println("HUI");
-//        CreateTables.createTab();
+        CreateTables.createTab();
       }
 }
 

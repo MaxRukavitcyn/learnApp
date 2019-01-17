@@ -1,7 +1,10 @@
 CREATE DATABASE eddb;
-DROP TABLE IF EXISTS organization CASCADE;
+DROP TABLE IF EXISTS organizations CASCADE;
 DROP TABLE IF EXISTS employees CASCADE;
-CREATE TABLE organization (
+DROP SEQUENCE IF EXISTS organization_id_seq CASCADE ;
+DROP SEQUENCE IF EXISTS employees_id_seq CASCADE ;
+
+CREATE TABLE organizations (
   org_id bigint NOT NULL,
   org_name text NOT NULL ,
   org_adress text NOT NULL ,
@@ -19,7 +22,7 @@ CREATE TABLE employees (
   emp_id bigint NOT NULL,
   emp_name text NOT NULL ,
   emp_last_name text NOT NULL ,
-  emp_age int NOT NULL ,
+  emp_age bigint NOT NULL ,
   emp_pos text NOT NULL ,
   org_id bigint NOT NULL ,
   department text NOT NULL ,
@@ -31,11 +34,11 @@ CREATE TABLE employees (
 
 ALTER TABLE employees
   ADD CONSTRAINT fk_organization_id
-FOREIGN KEY (org_id) REFERENCES organization (org_id);
+FOREIGN KEY (org_id) REFERENCES organizations (org_id);
 
 CREATE SEQUENCE organization_id_seq;
 
-ALTER TABLE organization 
+ALTER TABLE organizations
     ALTER COLUMN org_id 
         SET DEFAULT NEXTVAL('organization_id_seq');
 
