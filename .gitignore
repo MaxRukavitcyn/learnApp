@@ -3,3 +3,4 @@ target
 /src/main/java/pkg/*
 /src/main/webapp/bower_components
 /src/main/webapp/node_modules
+*.json
