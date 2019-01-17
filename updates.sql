@@ -1,8 +1,8 @@
-CREATE DATABASE eddb;
+/*CREATE DATABASE eddb;*/
 DROP TABLE IF EXISTS organizations CASCADE;
 DROP TABLE IF EXISTS employees CASCADE;
-DROP SEQUENCE IF EXISTS organization_id_seq CASCADE ;
-DROP SEQUENCE IF EXISTS employees_id_seq CASCADE ;
+DROP SEQUENCE IF EXISTS  employees_id_seq;
+DROP SEQUENCE IF EXISTS  organization_id_seq;
 
 CREATE TABLE organizations (
   org_id bigint NOT NULL,
@@ -58,7 +58,7 @@ CREATE INDEX employees_index_salary ON employees(salary);
 
 CREATE INDEX employees_index_organizaton ON employees(org_id);
 
-CREATE INDEX organization_index_org_name ON organization (org_name);
+CREATE INDEX organization_index_org_name ON organizations (org_name);
 
 
 
