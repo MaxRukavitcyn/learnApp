@@ -1,6 +1,7 @@
 package com.learn.spring.beans;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
@@ -10,15 +11,19 @@ import java.util.List;
 @RestController
 public class MainController {
 
+   @Autowired
    private ServiceAppEmployees serviceEmployer;
+
+   @Autowired
    private ServiceAppOrganization serviceOrganization;
 
-
+/*
+   @Autowired
     public MainController(ServiceAppEmployees serviceEmployer, ServiceAppOrganization serviceOrganization) {
         this.serviceEmployer = serviceEmployer;
         this.serviceOrganization = serviceOrganization;
     }
-
+*/
     @RequestMapping("/employer")
     public List getListEmployees(String name, String lastName,
                                            Long age, Long idOrganization,

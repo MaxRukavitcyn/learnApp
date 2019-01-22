@@ -36,7 +36,6 @@ public class ServiceAppEmployees {
 
         try (Connection conn = ds.getConnection()) {
 
-
             DSLContext create = DSL.using(conn, SQLDialect.POSTGRES_10);
 
 //проверяем поля на null, если не поле не null добовляем его в condition

@@ -35,25 +35,21 @@ tables.controller('TableEmployeesCtrl', ['$scope', '$http', '$location', functio
 
     $scope.title = 'Сотрудники';
     var url = baseUrl + '/employer?limit=20';
-
+/*
     $http.get(url, {
         params: $location.search()
     })
         .success(function (data) {
             $scope.employees = data;
         });
-
+*/
     $scope.searchEmployer = function () {
         $http.get(url, {
-            params: $scope.employer
+           // params: $scope.employer
         }).success(function (data) {
             $scope.employees = data;
         });
     };
-
-    $scope.showHello = function(){
-        alert('Привет Лена и Саша');
-    }
 
     //filter
     $scope.reverse = false;
@@ -72,17 +68,17 @@ tables.controller('TableEmployeesCtrl', ['$scope', '$http', '$location', functio
 
 tables.controller('TableOrganizationCtrl', ['$scope', '$http', '$location', function tableOrganizationCtr($scope, $http, $location) {
     var url = baseUrl + '/organization?limit=20';
-
+/*
     $http.get(url, {
         params: $location.search()
     })
         .success(function (data) {
             $scope.organizations = data;
         });
-
+*/
     $scope.searchOrganization = function () {
         $http.get(url, {
-            params: $scope.organization
+            // params: $scope.organization
         })
             .success(function (data) {
                 $scope.organizations = data;
