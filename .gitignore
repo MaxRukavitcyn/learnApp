@@ -5,3 +5,4 @@ target
 /src/main/webapp/node_modules
 *.json
 *.iml
+/src/main/resources/static/*

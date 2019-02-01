@@ -3,7 +3,6 @@ package com.learn.spring.beans;
 
 import org.jooq.*;
 import org.jooq.impl.DSL;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pkg.db.classes.tables.Organizations;
 
@@ -19,7 +18,7 @@ public class ServiceAppOrganization {
     DataSource ds;
     // private Connection conn;
 
-    @Autowired
+
     public ServiceAppOrganization(DataSource ds) {
         this.ds = ds;
         //   this.conn = ds.getConnection();
@@ -101,8 +100,7 @@ public class ServiceAppOrganization {
     public Object getOrganization(long id) throws Exception {
         try (Connection conn = ds.getConnection()) {
             DSLContext create = DSL.using(conn, SQLDialect.POSTGRES_10);
-            return create.select().from(Organizations.ORGANIZATIONS)
-                    .where(Organizations.ORGANIZATIONS.ORG_ID.eq(id)).fetch().into(Organization.class);
+            return create.select().from(Organizations.ORGANIZATIONS).where("org_id = " + id).fetch().into(Organization.class);
         }
     }
 
@@ -118,16 +116,14 @@ public class ServiceAppOrganization {
                     .set(Organizations.ORGANIZATIONS.DEPARTMENTS, org.getDepartments())
                     .set(Organizations.ORGANIZATIONS.DIRECTOR, org.getDirector())
                     .set(Organizations.ORGANIZATIONS.INSALUBRITY, org.isInsalubrity())
-                    .set(Organizations.ORGANIZATIONS.STATUS, org.isStatus())
-                    .where(Organizations.ORGANIZATIONS.ORG_ID.eq(Organizations.ORGANIZATIONS.ORG_ID)).returning().fetch();
+                    .set(Organizations.ORGANIZATIONS.STATUS, org.isStatus()).where("org_id = " + org.getOrgId()).returning().fetch();
         }
     }
 
     public void deleteOrganization(Long id) throws Exception {
         try (Connection conn = ds.getConnection()) {
             DSLContext create = DSL.using(conn, SQLDialect.POSTGRES_10);
-            create.deleteFrom(Organizations.ORGANIZATIONS)
-                    .where(Organizations.ORGANIZATIONS.ORG_ID.eq(id)).returning().fetch();
+            create.deleteFrom(Organizations.ORGANIZATIONS).where("org_id = " + id).returning().fetch();
 
         }
     }

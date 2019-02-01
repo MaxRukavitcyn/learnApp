@@ -78,7 +78,7 @@ tables.controller('TableOrganizationCtrl', ['$scope', '$http', '$location', func
 
     $scope.searchOrganization = function () {
         $http.get(url, {
-             params: $scope.organization
+            params: $scope.organization
         })
             .success(function (data) {
                 $scope.organizations = data;
@@ -110,7 +110,6 @@ tables.controller('EmployerCtrl', function ($scope, $http, AddEmployer) {
             alert('сотрудник удален');
         });
     };
-    // var employerPatch = $scope.employerPatch;
     $scope.patchEmployer = function () {
         $http.patch(baseUrl + '/employer', $scope.employerPatch).success(function () {
                 alert('сотрудник изменен');

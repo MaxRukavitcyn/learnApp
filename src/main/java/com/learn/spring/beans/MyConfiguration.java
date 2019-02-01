@@ -13,7 +13,7 @@ public class MyConfiguration {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
-//                 forward requests to /admin and /user to their index.html
+                // forward requests to /admin and /user to their index.html
                 registry.addViewController("/admin").setViewName(
                         "forward:/webapp/index.html");
                 registry.addViewController("/user").setViewName(

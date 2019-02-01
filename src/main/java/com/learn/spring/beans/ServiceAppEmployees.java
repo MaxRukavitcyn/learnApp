@@ -3,7 +3,6 @@ package com.learn.spring.beans;
 //import org.apache.log4j.Logger;
 //import org.apache.log4j.BasicConfigurator;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pkg.db.classes.tables.Employees;
 import org.jooq.*;
@@ -19,7 +18,6 @@ public class ServiceAppEmployees {
     // static Logger log = Logger.getLogger(com.zaxxer.hikari.HikariConfig.class);
     DataSource ds;
 
-    @Autowired
     public ServiceAppEmployees(DataSource ds) {
         this.ds = ds;
     }
@@ -35,6 +33,7 @@ public class ServiceAppEmployees {
 
 
         try (Connection conn = ds.getConnection()) {
+
 
             DSLContext create = DSL.using(conn, SQLDialect.POSTGRES_10);
 
