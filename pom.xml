@@ -79,9 +79,9 @@
                         xsi:schemaLocation="http://www.jooq.org/xsd/jooq-codegen-3.11.0.xsd">
                     <jdbc>
                         <driver>org.postgresql.Driver</driver>
-                        <url>postgres://kmbcpbmtwiogjz:73d24cec3a86354197ec80a7c71648cd3923fc18989e16bbc39456e2f53f555d@ec2-54-228-250-82.eu-west-1.compute.amazonaws.com:5432/dagfuotjm6upo2</url>
-                        <user></user>
-                        <password></password>
+                        <url>jdbc:postgresql://localhost:5432/eddb</url>
+                        <user>postgres</user>
+                        <password>4061990</password>
                     </jdbc>
 
                     <generator>
